@@ -34,6 +34,10 @@ export class PostsService {
         }
         return postArray;
       }));
-
   }
+
+  deletePosts() {
+    return this.http.delete('https://ng-complete-guide-ef715.firebaseio.com/posts.json');
+  }
+
 }
