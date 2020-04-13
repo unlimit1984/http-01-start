@@ -39,7 +39,7 @@ export class PostsService {
         }
         return postArray;
       }), catchError(errorResp => {
-        // throwError(errorResp);
+        // return throwError({message: 'My Custom error'});
         return throwError(errorResp);
       }));
   }
