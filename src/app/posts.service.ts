@@ -34,13 +34,15 @@ export class PostsService {
     searchParams = searchParams.append('print', 'pretty');
     searchParams = searchParams.append('key', 'value');
 
-    return this.http.get<{ [key: string]: Post }>(
-      'https://ng-complete-guide-ef715.firebaseio.com/posts.json',
-      {
-        headers: new HttpHeaders({'Custom-Header': 'Hello'}),
-        // params: new HttpParams().set('print', 'pretty')
-        params: searchParams
-      })
+    return this.http
+      .get<{ [key: string]: Post }>(
+        'https://ng-complete-guide-ef715.firebaseio.com/posts.json',
+        {
+          headers: new HttpHeaders({'Custom-Header': 'Hello'}),
+          // params: new HttpParams().set('print', 'pretty')
+          params: searchParams,
+          responseType: 'json' // by default
+        })
       .pipe(map(responseData => {
         //   .pipe(map((responseData: { [key: string]: Post }) => {
         // const postArray = [];
